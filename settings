@@ -1,10 +1,29 @@
 class Settings:
     """ Uma classe para armazenar as configurações do jogo """
-
-
+    
     def __init__(self):
-        """Inicializar as nossas configuações """
+        """ Inicializar as nossas configurações """
+       
         # Configurações da janela do jogo
-        self.screen_width = 1200
-        self.screen_height = 800
+        self.screen_width = 1600
+        self.screen_height = 1000
+        self.screen_background_img = "images/ultrawide.jpeg"
         self.bg_color = (230, 230, 230)
+        
+        #configurações da nave
+        self.ship_speed = 1.8
+        self.bullets_allowed = 20
+        
+        # Configuração das balas
+        self.bullet_speed = 2.5
+        self.bullet_width = 5
+        self.bullet_height = 15
+        self.bullet_color = (255,255,255)
+
+        # Configuração dos aliens
+        # Espaço entre aliens, em múltiplos da largura de um alien (aceita decimais)
+        # 1.0 = um alien de espaço; 0.5 = meio alien; 1.5 = alien e meio
+        self.alien_spacing = 0.5
+        self.alien_speed = 1.0
+        self.fleet_drop_speed = 10
+        self.fleet_direction = 1
