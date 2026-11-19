@@ -1,0 +1,31 @@
+import pygame
+from pygame.sprite import Sprite
+
+class Bullet(Sprite):
+    """ CLasse para gerir as balas disparadas pela nave """
+    
+    def __init__(self, ai_game):
+        """ Criar uma bala na posição atual da nave """
+        super().__init__()
+        self.screen = ai_game.screen
+        self.settings = ai_game.settings
+        self.color = self.settings.bullet_color
+        
+        # Criar um rect para a bala em (0,0) e depois vamos definir a sua posição correta
+        self.rect = pygame.Rect(0,0, self.settings.bullet_width, self.settings.bullet_height)
+        self.rect.midbottom = ai_game.ship.rect.midtop
+           
+        #Guardar a nossa bala numa posição com um numero float
+        self.y = float(self.rect.y)
+        
+    def update(self):
+        """ Moveer a bala para cima do ecrã """
+        # Atualizar a posição decimal da bala
+        self.y -= self.settings.bullet_speed
+        # Atualizar a posição do rect da bala
+        self.rect.y = self.y
+
+        
+    def draw_bullet(self):
+        """ Desenha a bala no ecrã """
+        pygame.draw.rect(self.screen, self.color, self.rect)
